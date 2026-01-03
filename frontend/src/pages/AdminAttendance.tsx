@@ -109,6 +109,16 @@ const AdminAttendance = () => {
   }, [allRecords, selectedDate, view, searchQuery]);
 
   // Stats for selected date/week
+  // Map API status values to StatusChip compatible values
+  const mapStatus = (status: string): 'present' | 'absent' | 'half-day' | 'leave' | 'pending' | 'approved' | 'rejected' => {
+    const statusMap: Record<string, 'present' | 'absent' | 'half-day' | 'leave' | 'pending' | 'approved' | 'rejected'> = {
+      'half_day': 'half-day',
+      'remote': 'leave',
+      'late': 'present',
+    };
+    return (statusMap[status] || status) as 'present' | 'absent' | 'half-day' | 'leave' | 'pending' | 'approved' | 'rejected';
+  };
+
   const stats = useMemo(() => {
     const dateRecords = allRecords.filter((r) => r.date.startsWith(selectedDate));
     return {
@@ -395,7 +405,7 @@ const AdminAttendance = () => {
                           {record.workHours ? `${record.workHours.toFixed(1)} hrs` : '-'}
                         </td>
                         <td className="p-4">
-                          <StatusChip status={record.status} size="sm" />
+                          <StatusChip status={mapStatus(record.status)} size="sm" />
                         </td>
                       </motion.tr>
                     ))

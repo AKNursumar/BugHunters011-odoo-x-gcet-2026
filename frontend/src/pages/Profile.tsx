@@ -271,10 +271,10 @@ const Profile = () => {
               <h3 className="font-display text-lg font-semibold mb-6">Salary Structure</h3>
               <div className="space-y-4">
                 {[
-                  { label: 'Basic Salary', value: user?.salary.basic },
-                  { label: 'HRA', value: user?.salary.hra },
-                  { label: 'Allowances', value: user?.salary.allowances },
-                  { label: 'Deductions', value: user?.salary.deductions, isNegative: true },
+                  { label: 'Basic Salary', value: user?.salary?.basic || 0 },
+                  { label: 'HRA', value: user?.salary?.hra || 0 },
+                  { label: 'Allowances', value: user?.salary?.allowances || 0 },
+                  { label: 'Deductions', value: user?.salary?.deductions || 0, isNegative: true },
                 ].map((item, index) => (
                   <div
                     key={item.label}
@@ -282,7 +282,7 @@ const Profile = () => {
                   >
                     <span className="text-muted-foreground">{item.label}</span>
                     <span className={`font-semibold ${item.isNegative ? 'text-destructive' : ''}`}>
-                      {item.isNegative ? '-' : ''}{formatCurrency(item.value || 0)}
+                      {item.isNegative ? '-' : ''}{formatCurrency(item.value)}
                     </span>
                   </div>
                 ))}
@@ -290,10 +290,10 @@ const Profile = () => {
                   <span className="font-semibold">Net Salary</span>
                   <span className="font-bold text-xl text-primary">
                     {formatCurrency(
-                      (user?.salary.basic || 0) +
-                      (user?.salary.hra || 0) +
-                      (user?.salary.allowances || 0) -
-                      (user?.salary.deductions || 0)
+                      (user?.salary?.basic || 0) +
+                      (user?.salary?.hra || 0) +
+                      (user?.salary?.allowances || 0) -
+                      (user?.salary?.deductions || 0)
                     )}
                   </span>
                 </div>

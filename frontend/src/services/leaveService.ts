@@ -100,6 +100,15 @@ class LeaveService {
       throw new Error(handleApiError(error));
     }
   }
+
+  async getLeaveRequests(filters?: LeaveFilters) {
+    try {
+      const response = await api.get('/leaves', { params: filters });
+      return response.data;
+    } catch (error) {
+      throw new Error(handleApiError(error));
+    }
+  }
 }
 
 export default new LeaveService();

@@ -344,15 +344,15 @@ const SignUp = () => {
 
               {/* Full Name */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Company Name</label>
+                <label className="text-sm font-medium">Full Name</label>
                 <div className="relative">
-                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <Input
                     type="text"
-                    placeholder="Enter your company name"
+                    placeholder="John Doe"
                     className="pl-10 bg-secondary/50 border-border focus:border-primary input-glow"
-                    value={formData.companyName}
-                    onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
                   />
                 </div>

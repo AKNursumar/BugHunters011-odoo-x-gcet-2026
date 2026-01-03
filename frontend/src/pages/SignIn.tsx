@@ -416,14 +416,6 @@ const SignIn = () => {
                 </Button>
               </form>
 
-              {/* Demo Credentials */}
-              <div className="mt-6 p-4 rounded-lg bg-muted/50 border border-border">
-                <p className="text-xs text-muted-foreground mb-2">Demo credentials:</p>
-                <p className="text-xs"><span className="text-foreground">Employee:</span> any ID (e.g., "EMP001" or "new123")</p>
-                <p className="text-xs"><span className="text-foreground">HR/Admin:</span> ID with "admin" or "hr" (e.g., "admin@company.com")</p>
-                <p className="text-xs"><span className="text-foreground">Password:</span> 6+ characters (or "Welcome@123" for first-time)</p>
-              </div>
-
               {/* Sign Up Link */}
               <p className="text-center mt-6 text-muted-foreground">
                 Don't have an account?{' '}
